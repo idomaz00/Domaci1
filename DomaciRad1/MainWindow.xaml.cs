@@ -54,6 +54,5 @@ namespace DomaciRad1
                 StrokeThickness = 1
             });
         }
-
     }
 }
