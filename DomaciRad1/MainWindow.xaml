@@ -1,11 +1,13 @@
 ﻿<Window x:Class="DomaciRad1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:contols="clr-namespace:DomaciRad1.Controls"
+        x:Name="Main"
         Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"></RowDefinition>
-            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
@@ -15,25 +17,26 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1">
-            <Button  x:Name="LeftButton" Margin="5" Width="80" FontSize="10">Dodaj L</Button>
-            <Button x:Name="RightButton" Margin="5" Width="80" FontSize="10">Dodaj R</Button>
-        </StackPanel>
+            <Button x:Name="AddFriendButton" Margin="5" Width="80" FontSize="10">Add a friend </Button>
+            <Button x:Name="AddPostButton" Margin="5" Width="80" FontSize="10">Add a post</Button>
+        </StackPanel>        
         
-        <Rectangle Grid.Row="1" Grid.Column="0" Fill="Navy" Margin="10"></Rectangle>   
-        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Width="350" Height="25" Text="Search" FontSize="15" TextAlignment="Left"></TextBox>
+        <contols:User x:Name="MainUser" Grid.Row="1" Grid.Column="0" Margin="10" Title="Me" ></contols:User>
+           
+        <TextBox x:Name="SearchBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Width="350" Height="25" Text="Search" FontSize="15" TextAlignment="Left"></TextBox>
 
         <ScrollViewer Grid.Row="2" Grid.Column="0" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="LeftRectangles" Orientation="Vertical">
-                <Rectangle Width="60" Height="60" Fill="Purple" Margin="0 10"></Rectangle>
-                <Rectangle Width="60" Height="60" Fill="purple" Margin="0 10"></Rectangle>
-                <Rectangle Width="60" Height="60" Fill="Purple" Margin="0 10"></Rectangle>                
+            <StackPanel x:Name="UserPanel" Orientation="Vertical">
+                <contols:User Title="Anja"></contols:User>
+                <contols:User Title="Josipa"></contols:User>
+                <contols:User Title="Alen"></contols:User>
             </StackPanel>
         </ScrollViewer>
         
         <ScrollViewer Grid.Row="2" Grid.Column="1" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="RightRectangles" Orientation="Vertical" >
-                <Rectangle Height="20" Width="350" Fill="Pink" Stroke="Black" StrokeThickness="1" ></Rectangle>
-                <Rectangle Height="20" Width="350" Fill="Pink" Margin="10" Stroke="Black" StrokeThickness="1"></Rectangle>                
+            <StackPanel x:Name="PostPanel" Orientation="Vertical" >
+                <contols:Post Text="My first post!"></contols:Post>
+                <contols:Post Text="Heloooo"></contols:Post>                
             </StackPanel>
         </ScrollViewer>
 
